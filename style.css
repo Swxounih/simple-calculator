@@ -2,11 +2,11 @@
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 15px;
     background-color: black;
-    width: 95%;
     max-width: 500px;
+    width: 95%;
     overflow: hidden;
     position: relative;
-    z-index: 1; /* lower so photos can overlap */
+    z-index: 1;
 }
 
 #Btn {
@@ -21,14 +21,16 @@
 button {
     background-color: black;
     width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
+    aspect-ratio: 1/1;
+    max-width: 70px;
+    max-height: 70px;
+    border-radius: 50px;
     color: white;
     border: none;
-    font-size: clamp(20px, 5vw, 30px);
+    font-size: 30px;
     cursor: pointer;
+    justify-self: center;
 }
-
 button:hover {
     background-color: grey;
 }
@@ -79,8 +81,8 @@ body {
 /* Videos */
 .floating-meme {
     position: absolute;
-    width: min(38vw, 220px);
-    height: min(38vw, 220px);
+    width: 400px;
+    height: 400px;
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 10px 35px rgba(0,0,0,0.6);
@@ -115,26 +117,31 @@ body {
     display: block;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
 
     #Calculator {
-        width: 100%;
-        max-width: 360px;
-    }
-
-    #Btn {
-        gap: 8px;
-        padding: 10px;
+        max-width: 350px;
     }
 
     button {
-        font-size: 22px;
+        max-width: 60px;
+        max-height: 60px;
+        font-size: 24px;
     }
 
-    .floating-meme,
+    #text {
+        font-size: 24px;
+        padding: 15px;
+    }
+
+    .floating-meme {
+        width: 150px;
+        height: 150px;
+    }
+
     .floating-photo {
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
     }
 }
