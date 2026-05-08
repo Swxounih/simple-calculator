@@ -2,10 +2,11 @@
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 15px;
     background-color: black;
+    width: 95%;
     max-width: 500px;
     overflow: hidden;
     position: relative;
-    z-index: 10;
+    z-index: 1; /* lower so photos can overlap */
 }
 
 #Btn {
@@ -13,19 +14,18 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     padding: 15px;
-    max-width: 500px;
-    justify-content: center;
-    align-content: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 button {
     background-color: black;
-    width: 70px;
-    height: 70px;
-    border-radius: 50px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     color: white;
     border: none;
-    font-size: 30px;
+    font-size: clamp(20px, 5vw, 30px);
     cursor: pointer;
 }
 
@@ -46,12 +46,12 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    height: 100vh;
-    align-content: center;
-    flex-direction: column;
+    min-height: 100vh;
     align-items: center;
     background-color: #111;
     overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 #text {
@@ -61,28 +61,26 @@ body {
     border: none;
     border-radius: 15px;
     color: white;
-    font-size: 30px;
+    font-size: clamp(24px, 6vw, 35px);
     text-align: right;
     width: calc(100% - 50px);
+    box-sizing: border-box;
 }
 
 /* Floating meme container */
 #memeContainer {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     pointer-events: none;
-    z-index: 5;
+    z-index: 9999; /* HIGHER than calculator */
     overflow: hidden;
 }
 
 /* Videos */
 .floating-meme {
     position: absolute;
-    width: 400;
-    height:400px;
+    width: min(38vw, 220px);
+    height: min(38vw, 220px);
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 10px 35px rgba(0,0,0,0.6);
@@ -100,8 +98,8 @@ body {
 /* Photos */
 .floating-photo {
     position: absolute;
-    width: 400px;       /* <- baguhin kung gusto mong mas malaki/maliit ang photos */
-    height: 400px;
+    width: min(40vw, 230px);
+    height: min(40vw, 230px);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.6);
@@ -115,4 +113,28 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    #Calculator {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    #Btn {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 22px;
+    }
+
+    .floating-meme,
+    .floating-photo {
+        width: 120px;
+        height: 120px;
+    }
 }
