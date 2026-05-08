@@ -111,6 +111,6 @@ function startMemes() {
     // Photos: lalabas pagkatapos ng lahat ng videos, 1s interval bawat isa
     const videosDone = videos.length * 3000;
     photos.forEach((_, i) => {
-        setTimeout(() => spawnPhoto(i), videosDone + i * 1000);
+        setTimeout(() => spawnPhoto(i), videosDone + i *3000);
     });
 }
